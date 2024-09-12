@@ -1,39 +1,25 @@
- import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:movies_app/home/home.dart';
+import 'package:movies_app/home/tabs/Browse_Details_Screen.dart';
+import 'package:movies_app/home/tabs/Home_details_screen.dart';
 
-void main()async
- {
-  /* WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-   await Future.delayed(const Duration(seconds: 1));
-   await Future.delayed(const Duration(seconds: 1));
-   await Future.delayed(const Duration(seconds: 1));
-   await Future.delayed(const Duration(seconds: 1));
-   await Future.delayed(const Duration(seconds: 1));
-   FlutterNativeSplash.remove();*/
-   runApp(MyApp());
+void main() {
+  runApp(MyApp());
+}
 
- }
-
-
-
-
-
- class MyApp extends StatelessWidget {
-   const MyApp({super.key});
-
-   @override
-   Widget build(BuildContext context) {
-     return MaterialApp(
-       debugShowCheckedModeBanner: false,
-       initialRoute: HomeScreen.routeName,
-       routes: {
-         HomeScreen.routeName: (context) => HomeScreen(),
-
-       },
-     );
-   }
- }
- 
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      themeMode: ThemeMode.dark,
+      darkTheme: ThemeData.dark(),
+      debugShowCheckedModeBanner: false,
+      initialRoute: HomeScreen.routeName,
+      routes: {
+        HomeScreen.routeName: (context) => HomeScreen(),
+        HomeDetailsScreen.routeName: (context) => HomeDetailsScreen(),
+        BrowseDetailsScreen.routeName: (context) => BrowseDetailsScreen(),
+      },
+    );
+  }
+}

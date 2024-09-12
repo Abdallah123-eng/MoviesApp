@@ -20,49 +20,52 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Scaffold(
-          bottomNavigationBar: BottomNavigationBar(
+    return SafeArea(
+      child: Stack(
+        children: [
+          Scaffold(
 
-            unselectedItemColor: Colors.white,
-            selectedItemColor: Appcolor.primary,
-            backgroundColor: Colors.black,
-            showUnselectedLabels: true,
-            showSelectedLabels: true,
-            currentIndex: selectedindex,
-            onTap: (index) {
-              selectedindex = index;
-              setState(() {});
-            },
-            iconSize: 30,
-            items: const [
-              BottomNavigationBarItem(
-                // backgroundColor: Color(0xffB7935F),
-                  backgroundColor: Colors.black,
-                  icon: ImageIcon(AssetImage("assets/images/Home icon.png")),
-                  label: "Home"),
-              BottomNavigationBarItem(
-                  backgroundColor: Colors.black,
-                //backgroundColor: Color(0xffB7935F),
-                  icon: Icon(Icons.search),
-                  label: "Search"),
-              BottomNavigationBarItem(
-                  backgroundColor: Colors.black,
-                // backgroundColor: Color(0xffB7935F),
-                  icon: ImageIcon(AssetImage("assets/images/Icon material-movie.png")),
-                  label: "Browse"),
-              BottomNavigationBarItem(
-                  backgroundColor: Colors.black,
-                // backgroundColor: Color(0xffB7935F),
-                  icon: ImageIcon(AssetImage("assets/images/Iconbookmarks.png")),
-                  label: "WatchList"),
+            bottomNavigationBar: BottomNavigationBar(
 
-            ],
+              unselectedItemColor: Colors.white,
+              selectedItemColor: Appcolor.primary,
+              backgroundColor: Colors.black,
+              showUnselectedLabels: true,
+              showSelectedLabels: true,
+              currentIndex: selectedindex,
+              onTap: (index) {
+                selectedindex = index;
+                setState(() {});
+              },
+              iconSize: 30,
+              items: const [
+                BottomNavigationBarItem(
+                  // backgroundColor: Color(0xffB7935F),
+                    backgroundColor: Colors.black,
+                    icon: ImageIcon(AssetImage("assets/images/Home icon.png")),
+                    label: "Home"),
+                BottomNavigationBarItem(
+                    backgroundColor: Colors.black,
+                  //backgroundColor: Color(0xffB7935F),
+                    icon: Icon(Icons.search),
+                    label: "Search"),
+                BottomNavigationBarItem(
+                    backgroundColor: Colors.black,
+                  // backgroundColor: Color(0xffB7935F),
+                    icon: ImageIcon(AssetImage("assets/images/Icon material-movie.png")),
+                    label: "Browse"),
+                BottomNavigationBarItem(
+                    backgroundColor: Colors.black,
+                  // backgroundColor: Color(0xffB7935F),
+                    icon: ImageIcon(AssetImage("assets/images/Iconbookmarks.png")),
+                    label: "WatchList"),
+
+              ],
+            ),
+            body: tabs[selectedindex],
           ),
-          body: tabs[selectedindex],
-        ),
-      ],
+        ],
+      ),
     );
   }
 
