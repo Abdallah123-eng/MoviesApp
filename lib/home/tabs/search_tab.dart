@@ -66,9 +66,9 @@ class _SearchTabState extends State<SearchTab> {
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
-                        focusColor: Colors.white,
+                        focusColor: Colors.black,
                         focusedBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(color: Colors.white, width: 2.0),
+                          borderSide: const BorderSide(color: Colors.black, width: 2.0),
                           borderRadius: BorderRadius.circular(30),
                         ),
                         border: OutlineInputBorder(
@@ -76,12 +76,13 @@ class _SearchTabState extends State<SearchTab> {
                           borderRadius: BorderRadius.circular(30),
                         ),
                         enabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(color: Colors.white, width: 2.0),
+                          borderSide: const BorderSide(color: Colors.black, width: 2.0),
                           borderRadius: BorderRadius.circular(30),
                         ),
                         hintText: 'Enter Your Name Here',
                         hintStyle: const TextStyle(color: Colors.black),
                       ),
+                      style: TextStyle(color: Colors.black),
                       keyboardType: TextInputType.text,
                       textInputAction: TextInputAction.next,
                     ),
