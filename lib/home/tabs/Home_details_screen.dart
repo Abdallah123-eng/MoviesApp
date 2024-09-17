@@ -15,10 +15,11 @@ class HomeDetailsScreen extends StatefulWidget {
 
 class _HomeDetailsScreenState extends State<HomeDetailsScreen> {
   late Future<List<Movie>> SimilarApiURL;
-
+  late Future<List<Movie>> DetailsApiURL;
   @override
   void initState() {
     SimilarApiURL = APIManager().SimilarSources();
+    DetailsApiURL = APIManager().DetailsSources();
     super.initState();
   }
   @override
@@ -36,24 +37,38 @@ class _HomeDetailsScreenState extends State<HomeDetailsScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Stack(
+
+
+          FutureBuilder(
+          future: DetailsApiURL,
+          builder: (context, snapshot) {
+            if (!snapshot.hasData) {
+              return Center(child: CircularProgressIndicator());
+            }
+            final movies9 = snapshot.data!;
+            return Column(
+                  children: [
+              Stack(
               alignment: Alignment.bottomLeft,
               children: [
-              /* Image.network(
-                  "https://image.tmdb.org/t/p/original/${movie.backDropPath}",
+                Image.network(
+                  "https://image.tmdb.org/t/p/original/${movies9[0].backDropPath}",
                   width: double.infinity,
                   height: height * 0.22,
                   fit: BoxFit.fill,
-                ),*/
+                ),
               ],
             ),
+                      ],
+                );
+              },),
             Padding(
               padding: const EdgeInsets.only(top: 10, right: 10, left: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Dora and the lost city of gold',
+                    'Text("ie/${variable.MovieId}/si")',
                     style: TextStyle(
                       fontSize: 18,
                     ),

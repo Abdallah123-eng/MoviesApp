@@ -37,8 +37,47 @@ class Movie {
   }
 }
 
+class search {
+  final String overview;
+  final String title;
+  final String originaltitle;
+  final String date;
+  //final String posterPath;
 
 
+
+  search({
+
+    required this.overview,
+    required this.title,
+    required this.originaltitle,
+    required this.date,
+   // required this.posterPath,
+
+  }
+      );
+
+  factory search.fromMap(Map<String, dynamic> map) {
+    return search(
+      overview: map['overview'],
+      title: map['title'],
+      originaltitle: map['original_title'],
+      date: map['release_date'],
+      //posterPath: map['poster_path'],
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'overview': overview,
+      'title': title,
+      'original_title':originaltitle,
+      'release_date': date,
+      // 'poster_Path': posterPath,
+
+    };
+  }
+}
 
 class Gener {
   final int id;

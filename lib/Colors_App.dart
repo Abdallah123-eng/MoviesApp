@@ -9,7 +9,9 @@ class Appcolor{
 
 class variable{
 
-  static int MovieId = 0;
+  static int MovieId = 533535;
   static int BrowseId = 0;
   static String Browsename = "0";
+  static String searchname="";
+
 }

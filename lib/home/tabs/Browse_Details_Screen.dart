@@ -59,7 +59,7 @@ class _BrowseDetailsScreenState extends State<BrowseDetailsScreen> {
                                         children: [
                                           Container(
                                             child: Image.network(
-                                              "https://image.tmdb.org/t/p/original/${movie8.backDropPath}",
+                                              "https://image.tmdb.org/t/p/w500/${movie8.backDropPath}",
                                               fit: BoxFit.fill,
                                               height: 200,
                                             ),

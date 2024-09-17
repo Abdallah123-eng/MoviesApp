@@ -9,9 +9,10 @@ class APIManager {
   final popularApiURL = "https://api.themoviedb.org/3/movie/popular?api_key=3a6b2daa336a793636816ea7b801d844";
   final upcomingApiURL = "https://api.themoviedb.org/3/movie/upcoming?api_key=3a6b2daa336a793636816ea7b801d844";
   final top_ratedApiURL = "https://api.themoviedb.org/3/movie/top_rated?api_key=3a6b2daa336a793636816ea7b801d844";
-  final SearchApiURL= "https://api.themoviedb.org/3/search/movie?api_key=3a6b2daa336a793636816ea7b801d844";
-  final SimilarApiURL= "https://api.themoviedb.org/3/movie/917496/similar?api_key=3a6b2daa336a793636816ea7b801d844";
+  final SearchApiURL= "https://api.themoviedb.org/3/search/movie?api_key=3a6b2daa336a793636816ea7b801d844&query=${variable.searchname}";
+  final SimilarApiURL= "https://api.themoviedb.org/3/movie/${variable.MovieId}/similar?api_key=3a6b2daa336a793636816ea7b801d844";
   final dicoverApiURL="https://api.themoviedb.org/3/discover/movie?api_key=3a6b2daa336a793636816ea7b801d844";
+  final DetailsApiURL="https://api.themoviedb.org/3/movie/${variable.MovieId}?api_key=3a6b2daa336a793636816ea7b801d844";
 
 
   Future<List<Movie>> getSources() async {
@@ -56,15 +57,15 @@ class APIManager {
       throw Exception('failed to load popular movies');
     }
   }
-  Future<List<Movie>> SearchSources() async {
+  Future<List<search>> SearchSources() async {
     final response = await http.get(Uri.parse(SearchApiURL));
 
     if (response.statusCode == 200) {
       final List<dynamic> data = json.decode(response.body)['results'];
 
-      List<Movie> movies = data.map((movie) =>
-          Movie.fromMap(movie)).toList();
-      return movies;
+      List<search> movie = data.map((Search) =>
+          search.fromMap(Search)).toList();
+      return movie;
     }
     else {
       throw Exception('failed to load popular movies');
@@ -75,7 +76,6 @@ class APIManager {
 
     if (response.statusCode == 200) {
       final List<dynamic> data = json.decode(response.body)['results'];
-
       List<Movie> movies = data.map((movie) =>
           Movie.fromMap(movie)).toList();
       return movies;
@@ -98,7 +98,19 @@ class APIManager {
       throw Exception('failed to load popular movies');
     }
   }
+  Future<List<Movie>> DetailsSources() async {
+    final response = await http.get(Uri.parse(DetailsApiURL));
+    if (response.statusCode == 200) {
+      final List<dynamic> data = json.decode(response.body);
 
+      List<Movie> movies = data.map((movie) =>
+          Movie.fromMap(movie)).toList();
+      return movies;
+    }
+    else {
+      throw Exception('failed to load popular movies');
+    }
+  }
 }
 
 
