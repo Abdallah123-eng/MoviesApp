@@ -15,3 +15,13 @@ class variable{
   static String searchname="";
 
 }
+
+
+class watchlist{
+
+  static List<String> title = ["kjhgf","jhgffg","jhg"];
+  static List<String> date = ["2018","2015","2017"];
+  static List<String> originaltitle = ["ggjhgfdfg","dgdgdg","dfdfdfdf"];
+  static List<String> image = ["/9l1eZiJHmhr5jIlthMdJN5WYoff.jpg","/9l1eZiJHmhr5jIlthMdJN5WYoff.jpg","/9l1eZiJHmhr5jIlthMdJN5WYoff.jpg"];
+
+}

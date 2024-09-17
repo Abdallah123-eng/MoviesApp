@@ -38,46 +38,57 @@ class _SearchTabState extends State<SearchTab> {
       children: [
         Padding(
           padding: const EdgeInsets.all(12),
-          child: Row(
-            children: [
-                 InkWell(
-                   onTap: ()
-                     {
-                       setState(() {});
-                       initState();
-                     },
-                    child: Icon(Icons.search)),
+          child: Container(
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.white,width: 2),
+              borderRadius: BorderRadius.circular(60),
+             color: Appcolor.grey,
 
-              Expanded(
-                child: TextField(
-                  onChanged: (value) {
-                    variable.searchname = MovieName.text;
-                  },
-                  controller: MovieName,
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: Colors.black87,
-                    focusColor: Colors.white,
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.red, width: 2.0),
-                      borderRadius: BorderRadius.circular(30),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                     InkWell(
+                       onTap: ()
+                         {
+                           setState(() {});
+                           initState();
+                         },
+                        child: Icon(Icons.search,size: 30,)),
+
+                  Expanded(
+                    child: TextField(
+                      onChanged: (value) {
+                        variable.searchname = MovieName.text;
+                      },
+                      controller: MovieName,
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        focusColor: Colors.white,
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(color: Colors.white, width: 2.0),
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        border: OutlineInputBorder(
+                          borderSide: const BorderSide(color: Colors.white, width: 2.0),
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(color: Colors.white, width: 2.0),
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        hintText: 'Enter Your Name Here',
+                        hintStyle: const TextStyle(color: Colors.black),
+                      ),
+                      keyboardType: TextInputType.text,
+                      textInputAction: TextInputAction.next,
                     ),
-                    border: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.red, width: 2.0),
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.red, width: 2.0),
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    hintText: 'Enter Your Name Here',
-                    hintStyle: const TextStyle(color: Colors.black),
                   ),
-                  keyboardType: TextInputType.text,
-                  textInputAction: TextInputAction.next,
-                ),
+                ],
               ),
-            ],
+            ),
           ),
         ),
       Container(
@@ -169,8 +180,7 @@ class _SearchTabState extends State<SearchTab> {
               ),
             );
           },
-        ):Container(
-          child:Column(
+        ):Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(
@@ -186,7 +196,6 @@ class _SearchTabState extends State<SearchTab> {
             ],
           ),
         ),
-      ),
 
       ],
     );

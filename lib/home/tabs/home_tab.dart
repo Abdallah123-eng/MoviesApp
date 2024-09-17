@@ -172,8 +172,15 @@ class _HomeTabState extends State<HomeTab> {
                                     fit: BoxFit.fill,
                                   ),
                                 ),
-                                Image.asset(
-                                  'assets/images/bookmark.png',
+                                InkWell(
+                                  onTap: (){
+                                    watchlist.image.add(movie1.backDropPath);
+                                    watchlist.title.add(movie1.title);
+                                    watchlist.originaltitle.add(movie1.title);
+                                  },
+                                  child: Image.asset(
+                                    'assets/images/bookmark.png',
+                                  ),
                                 ),
                               ],
                             ),
@@ -241,8 +248,15 @@ class _HomeTabState extends State<HomeTab> {
                                     fit: BoxFit.fill,
                                   ),
                                 ),
-                                Image.asset(
-                                  'assets/images/bookmark.png',
+                                InkWell(
+                                  onTap: (){
+                                    watchlist.image.add(movie3.backDropPath);
+                                    watchlist.title.add(movie3.title);
+                                    watchlist.originaltitle.add(movie3.title);
+                                  },
+                                  child: Image.asset(
+                                    'assets/images/bookmark.png',
+                                  ),
                                 ),
                               ],
                             ),
